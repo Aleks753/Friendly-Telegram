@@ -41,7 +41,7 @@ def publish(clients, key, api_token=None, create_new=True, full_match=False):
         config["api_id"] = api_token.ID
         config["api_hash"] = api_token.HASH
     app.update_buildpacks(["https://github.com/heroku/heroku-buildpack-python",
-                           "https://github.com/GeekTG/Heroku-BuildPack",
+                           "https://github.com/Aleks753/Heroku-BuildPack",
                            "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"])
     repo = get_repo()
     url = app.git_url.replace("https://", "https://api:" + key + "@")
@@ -81,7 +81,7 @@ def get_repo():
         repo = Repo(os.path.dirname(utils.get_base_dir()))
     except InvalidGitRepositoryError:
         repo = Repo.init(os.path.dirname(utils.get_base_dir()))
-        origin = repo.create_remote("origin", "https://github.com/GeekTG/Friendly-Telegram")
+        origin = repo.create_remote("origin", "https://github.com/Aleks753/Friendly-Telegram")
         origin.fetch()
         repo.create_head("master", origin.refs.master)
         repo.heads.master.set_tracking_branch(origin.refs.master)
